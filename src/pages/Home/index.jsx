@@ -27,10 +27,10 @@ export const Home = () => {
      return (
           <div className="page-transition">
                <Navbar />
-               <main className="flex gap-3">
+               <main className="flex flex-col md:flex-row gap-3">
                     <Sidebar />
-                    <div className="p-4 flex-1 max-w-[1200px] animate-fadeIn">
-                         <div className="flex flex-col gap-4 w-[500px] animate-fadeIn" style={{ animationDelay: '0.2s' }}>
+                    <div className="p-4 flex-1 max-w-[1200px] mx-auto w-full animate-fadeIn">
+                         <div className="flex flex-col gap-4 w-full md:w-[500px] animate-fadeIn" style={{ animationDelay: '0.2s' }}>
                               <div className="group animate-float">
                                    <input
                                         value={title}
@@ -67,7 +67,7 @@ export const Home = () => {
                          {pinnedNotes.length > 0 && (
                               <div className="mt-8 animate-fadeIn">
                                    <h3 className="text-lg font-medium mb-4 text-indigo-600">Pinned Notes</h3>
-                                   <div className="flex flex-wrap gap-6">
+                                   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                                         {pinnedNotes.map(({ id, title, description, isPinned, isImportant }) => (
                                              <Notescard
                                                   key={id}
@@ -85,7 +85,7 @@ export const Home = () => {
                          {notes.length > 0 && (
                               <div className="mt-8 animate-fadeIn">
                                    <h3 className="text-lg font-medium mb-4 text-indigo-600">Other Notes</h3>
-                                   <div className="flex flex-wrap gap-6">
+                                   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                                         {otherNotes.map(({ id, title, description, isPinned, isImportant }) => (
                                              <Notescard
                                                   key={id}

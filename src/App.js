@@ -5,20 +5,23 @@ import { Archive } from './components/archive';
 import { Important } from './components/important';
 import { Bin } from './components/bin';
 import { Footer } from './components/Footer';
+import { MenuProvider } from './Context/menu_context';
 
 function App() {
   return (
-    <div className="min-h-screen flex flex-col">
-      <div className="flex-grow">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/archive" element={<Archive />} />
-          <Route path="/important" element={<Important />} />
-          <Route path="/bin" element={<Bin />} />
-        </Routes>
+    <MenuProvider>
+      <div className="min-h-screen flex flex-col">
+        <div className="flex-grow">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/archive" element={<Archive />} />
+            <Route path="/important" element={<Important />} />
+            <Route path="/bin" element={<Bin />} />
+          </Routes>
+        </div>
+        <Footer />
       </div>
-      <Footer />
-    </div>
+    </MenuProvider>
   );
 }
 
